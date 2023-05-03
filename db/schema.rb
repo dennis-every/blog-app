@@ -15,9 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_183531) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer "author_id"
     t.bigint "post_id", null: false
     t.text "text"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_183531) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "author_id"
+    t.bigint "author_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,11 +34,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_183531) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "author_id"
     t.string "title"
     t.text "text"
     t.integer "comments_counter"
     t.integer "likes_counter"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
@@ -47,12 +47,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_183531) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "photo"
-    t.string "bio"
+    t.text "bio"
     t.integer "posts_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users", column: "author_id"
+  add_foreign_key "posts", "users", column: "author_id"
 end
