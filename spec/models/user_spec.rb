@@ -12,7 +12,7 @@ describe User, type: :model do
   end
 
   it 'is valid if posts_counter is an integer greater than or equal to zero' do
-    user = User.new(posts_counter: 0)
+    user = User.new(name: 'test', posts_counter: 0)
     expect(user).to be_valid
   end
 end
