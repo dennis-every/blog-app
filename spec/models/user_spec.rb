@@ -15,4 +15,14 @@ describe User, type: :model do
     user = User.new(name: 'test', posts_counter: 0)
     expect(user).to be_valid
   end
+
+  it '#last_3_posts' do
+    user = User.create!(name: 'test', posts_counter: 0)
+    Post.create!(title: 'first', comments_counter: 1, likes_counter: 1, author: user)
+    Post.create!(title: 'second', comments_counter: 1, likes_counter: 1, author: user)
+    Post.create!(title: 'third', comments_counter: 1, likes_counter: 1, author: user)
+    Post.create!(title: 'fourth', comments_counter: 1, likes_counter: 1, author: user)
+    posts = user.last_3_posts
+    expect(posts.size).to eq(3)
+  end
 end
