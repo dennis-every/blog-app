@@ -43,4 +43,17 @@ describe Post, type: :model do
       expect(post).to be_valid
     end
   end
+
+  it '#last_5_comments' do
+    user = User.create!(name: 'test', posts_counter: 0)
+    post = Post.create!(title: 'first post', comments_counter: 1, likes_counter: 1, author: user)
+    Comment.create!(text: 'first comment', author: user, post:)
+    Comment.create!(text: 'second comment', author: user, post:)
+    Comment.create!(text: 'third comment', author: user, post:)
+    Comment.create!(text: 'fourth comment', author: user, post:)
+    Comment.create!(text: 'fifth comment', author: user, post:)
+    Comment.create!(text: 'sixth comment', author: user, post:)
+    comments = post.last_5_comments
+    expect(comments.size).to eq(5)
+  end
 end
