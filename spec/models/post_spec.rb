@@ -56,4 +56,10 @@ describe Post, type: :model do
     comments = post.last_5_comments
     expect(comments.size).to eq(5)
   end
+
+  it '#update_author_posts_counter' do
+    author = User.create!(name: 'test', posts_counter: 0)
+    Post.create!(title: 'first post', comments_counter: 1, likes_counter: 1, author:)
+    expect(author.posts_counter).to eq(1)
+  end
 end
