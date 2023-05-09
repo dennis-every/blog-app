@@ -1,0 +1,21 @@
+.content {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  min-height: calc(100vh - 9rem);
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      .img-card {
+        border-right: solid #d5d5d5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-weight: 100;
+      }
+    }
+  }
+}
