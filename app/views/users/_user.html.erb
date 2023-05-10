@@ -2,7 +2,7 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-2 img-card">
-        x
+        <%= image_tag(user&.photo) if user.photo.present? %>
       </div>
       <div class="col-10">
         <div class="card-body">
