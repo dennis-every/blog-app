@@ -3,5 +3,7 @@ class UsersController < ApplicationController
     @users = User.order(id: :asc)
   end
 
-  def show; end
+  def show
+    @user = User.includes(:posts).find(params[:id])
+  end
 end
