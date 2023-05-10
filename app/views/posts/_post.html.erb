@@ -1,13 +1,9 @@
-<li>
+<%= link_to user_post_path(post.author, post) do %>
   <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">Post X</h5>
-      <p class="card-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, 
-        sapien vel bibendum lacinia, velit sapien tincidunt nunc, vel ultrices 
-        velit velit vel velit.
-      </p>
-      <p class="card-text text-end"><small class="text-muted">Comments X, Likes Y</small></p>
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= post.text %></p>
+      <p class="card-text text-end"><small class="text-muted">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></small></p>
     </div>
   </div>
-</li>
+<% end %>  

@@ -1,19 +1,13 @@
 <main class='content container'>
-  <h1>List of posts from user X</h1>
+  <h1>List of posts from <%= @user&.name %></h1>
   <ul>
-    <%= render 'users/user' %>
-    <%= render 'post' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'post' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
-    <%= render 'comment' %>
+    <li><%= render @user %></li>
+    <% @posts.each do |post| %>
+      <li><%= render post %></li>
+      <% post.last_5_comments.each do |comment| %>
+        <li><%= render 'comment', comment: comment %></li>
+      <% end %>
+    <% end %>
   </ul>
   <div class="text-center">
     <button class='btn btn-primary'>Pagination</button>
