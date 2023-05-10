@@ -1,4 +1,4 @@
-
+<%= link_to user_post_path(post.author, post) do %>
   <div class="card mb-3">
     <div class="card-body">
       <h5 class="card-title"><%= post.title %></h5>
@@ -6,3 +6,4 @@
       <p class="card-text text-end"><small class="text-muted">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></small></p>
     </div>
   </div>
+<% end %>  

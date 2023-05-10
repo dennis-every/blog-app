@@ -4,7 +4,7 @@
     <li><%= render @user %></li>
     <% @posts.each do |post| %>
       <li><%= render post %></li>
-      <% post.comments.each do |comment| %>
+      <% post.last_5_comments.each do |comment| %>
         <li><%= render 'comment', comment: comment %></li>
       <% end %>
     <% end %>
