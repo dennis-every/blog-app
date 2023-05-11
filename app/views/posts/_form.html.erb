@@ -1,0 +1,30 @@
+<%= form_with(model: [current_user, post]) do |form| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :author_id, value: params[:user_id] %>
+  
+  <fieldset class="mb-3">
+    <div><%= form.label :title %></div>
+    <div><%= form.text_field :title %></div>
+  </fieldset>
+    
+  <fieldset class="mb-3">
+    <div><%= form.label :text %></div>
+    <div><%= form.text_area :text %></div>
+  </fieldset>
+
+  <div class='mt-3'>
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+
+<% end %>
