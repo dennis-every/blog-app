@@ -12,6 +12,14 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 
+  def likes?(post)
+    likes.exists?(post:)
+  end
+
+  def like_for(post)
+    likes.find_by(post:)
+  end
+
   private
 
   def set_posts_counter

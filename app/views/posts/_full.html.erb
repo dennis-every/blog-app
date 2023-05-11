@@ -1,6 +1,10 @@
 <div class="card mb-3">
   <div class="card-body">
     <h5 class="card-title">Post by <%= post&.author&.name %></h5>
+    <div class='d-flex justify-content-between'>
+      <span><h5 class="card-title"><%= link_to post.title, post %></h5></span>
+      <span><%= like_link(post) %></span>
+    </div>
     <p class="card-text"><%= post.text %></p>
     <div class='d-flex mt-5 justify-content-between'>
       <span><%= link_to 'Add comment', new_post_comment_path(post), class: 'btn btn-primary' %></span>
