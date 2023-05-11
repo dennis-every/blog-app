@@ -1,9 +1,11 @@
-<%= link_to user_post_path(post.author, post) do %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title"><%= post.title %></h5>
-      <p class="card-text"><%= post.text %></p>
-      <p class="card-text text-end"><small class="text-muted">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></small></p>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to post.title, post %></h5>
+    <p class="card-text"><%= post.text %></p>
+    <div class='d-flex mt-5 justify-content-between'>
+      <span><%= link_to 'Add comment', new_post_comment_path(post), class: 'btn btn-primary' %></span>
+      <span class="card-text"><small class="text-muted">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></small></span>
     </div>
   </div>
-<% end %>  
+</div>
+
