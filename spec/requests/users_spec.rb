@@ -27,9 +27,9 @@ RSpec.describe 'Users', type: :request do
       get user_path(user.id)
       expect(response).to render_template(:show)
     end
-    it "response body includes the text 'Username'" do
+    it "response body includes the text 'Bio'" do
       get user_path(user.id)
-      expect(response.body).to include('Username')
+      expect(response.body).to include('Bio')
     end
   end
 end

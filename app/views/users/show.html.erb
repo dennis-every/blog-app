@@ -1,12 +1,12 @@
 <main class='content container'>
   <ul>
-    <%= render 'user' %>
-    <%= render 'bio' %>
-    <%= render 'posts/post' %>
-    <%= render 'posts/post' %>
-    <%= render 'posts/post' %>
+    <li><%= render @user %></li>
+    <li><%= render 'bio', user: @user %></li>
+    <% @user.last_3_posts.each do |post| %>
+      <li><%= render post %></li>
+    <% end %>
   </ul>
   <div class="text-center">
-    <button class='btn btn-primary'>See all posts</button>
+    <%= link_to 'See all posts', user_posts_path(@user), class: 'btn btn-primary' %>
   </div>
 </main>

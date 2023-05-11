@@ -1,15 +1,15 @@
-<li>
+<%= link_to user_path(user) do %>
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-2 img-card">
-        x
+        <%= image_tag(user&.photo) if user.photo.present? %>
       </div>
       <div class="col-10">
         <div class="card-body">
-          <h5 class="card-title">Username</h5>
-          <p class="card-text text-end"><small class="text-muted">Number of posts x</small></p>
+          <h5 class="card-title"><%= user&.name %></h5>
+          <p class="card-text text-end"><small class="text-muted">Number of posts: <%= user&.posts_counter %></small></p>
         </div>
       </div>
     </div>
   </div>
-</li>
+<% end %>
