@@ -1,0 +1,26 @@
+<%= form_with(model: [ @post, comment ], url: post_comments_path(params[:post_id])) do |form| %>
+
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h4>
+      <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :author_id, value: current_user.id %>
+  <%= form.hidden_field :post_id, value: params[:post_id] %>
+    
+  <fieldset class="mb-3">
+    <div><%= form.label :text %></div>
+    <div><%= form.text_area :text %></div>
+  </fieldset>
+
+  <div class='mt-3'>
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+
+<% end %>
