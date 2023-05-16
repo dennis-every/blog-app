@@ -2,7 +2,7 @@
   <ul>
     <li><%= render 'full', post: @post %></li>
     <% @post.comments.each do |comment| %>
-      <li><%= render 'comment', comment: comment %></li>
+      <li><%= render comment %></li>
     <% end %>
   </ul>
 </main>

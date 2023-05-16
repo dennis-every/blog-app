@@ -2,7 +2,7 @@
   <ul>
     <li><%= render @user %></li>
     <li><%= render 'bio', user: @user %></li>
-    <% @user.last_3_posts.each do |post| %>
+    <% @user.first_3_posts.each do |post| %>
       <li><%= render post %></li>
     <% end %>
   </ul>

@@ -46,6 +46,11 @@ A Ruby on Rails Blog application to demonstrate usage of Ruby on Rails. The Blog
 - **Project 1: Creating a data model**
 - **Project 2: Validations and Model specs**
 - **Project 3: Processing data in models**
+- **Project 4: Setup and controllers**
+- **Project 5: Controllers specs**
+- **Project 6: Views**
+- **Project 7: Forms**
+- **Project 8: Integration specs for Views and fixing n+1 problems**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,8 +84,10 @@ Clone this repository to your desired folder:
 To run the project, execute the following command:
 
 ```sh
+  rails db:drop
   rails db:create
   rails db:migrate
+  rails db:seed
   rails server
 ```
 
@@ -96,17 +103,23 @@ To run the project, execute the following command:
 - Twitter: [@dennis_every](https://twitter.com/dennis_every)
 - LinkedIn: [dennis-every](https://www.linkedin.com/in/dennis-every/)
 
+👤 **Nilton Segura**
+
+- GitHub: [@Nkaleth](https://github.com/Nkaleth)
+- Twitter: [@NoeSeguraL](https://twitter.com/NoeSeguraL)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/niltonsegura/)
+
+👤 **Jose Montoya**
+
+- GitHub: [@jmonto55](https://github.com/jmonto55)
+- LinkedIn: [jmontodev](https://www.linkedin.com/in/jmontodev/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Project 4: Setup and controllers**
-- **Project 5: Controllers specs**
-- **Project 6: Views**
-- **Project 7: Forms**
-- **Project 8: Integration specs for Views and fixing n+1 problems**
 - **Project 9: Add Devise**
 - **Project 10: Add authorization rules**
 - **Project 11: Add API endpoints**
