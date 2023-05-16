@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments).order(created_at: :desc)
+    @user = current_user
+    @likes = @user.likes.includes(:post).index_by(&:post_id)
+    @liked_post_ids = @likes.keys
+    @posts = @user.posts.includes(:likes, last_five_comments: :author).order(created_at: :desc)
   end
 
   def new
@@ -10,6 +12,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:comments).find(params[:id])
+    @user = @post.author
+    @likes = @user.likes.includes(:post).index_by(&:post_id)
+    @liked_post_ids = @likes.keys
   end
 
   def create
