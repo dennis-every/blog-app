@@ -2,14 +2,16 @@
   <h1>List of posts from <%= @user&.name %></h1>
   <ul>
     <li><%= render @user %></li>
-    <% @posts.each do |post| %>
+    <% @posts.limit(3).each do |post| %>
       <li><%= render post %></li>
       <% post.last_five_comments.each do |comment| %>
         <li><%= render comment %></li>
       <% end %>
     <% end %>
   </ul>
-  <div class="text-center">
-    <button class='btn btn-primary'>Pagination</button>
-  </div>
+  <% if @posts.size > 3 %>
+    <div class="text-center">
+      <button class='btn btn-primary'>Pagination</button>
+    </div>
+  <% end %>  
 </main>

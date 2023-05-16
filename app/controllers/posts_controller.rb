@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @user = current_user
     @likes = @user.likes.includes(:post).index_by(&:post_id)
     @liked_post_ids = @likes.keys
-    @posts = @user.posts.includes(:likes, last_five_comments: :author).order(created_at: :desc)
+    @posts = @user.posts.includes(:likes, last_five_comments: :author).order(created_at: :asc)
   end
 
   def new
