@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User index specs', type: :system do
   describe 'check the content of the index page' do
     before(:each) do
-        @user_one = User.create(name: 'Dennis', photo: 'pic.jpg', bio: 'software developer', posts_counter: 0)
-        @user_two = User.create(name: 'Neville', photo: 'pic.jpg', bio: 'data scientist', posts_counter: 0)
+      @user_one = User.create(name: 'Dennis', photo: 'pic.jpg', bio: 'software developer', posts_counter: 0)
+      @user_two = User.create(name: 'Neville', photo: 'pic.jpg', bio: 'data scientist', posts_counter: 0)
     end
 
     it 'should show the index page' do
