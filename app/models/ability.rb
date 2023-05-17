@@ -26,10 +26,20 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+
+    # starting rules for all users
     can :read, Post, public: true
-    # additional permissions for logged in users (they can read their own posts)
+
+    # additional permissions for logged in users
     return unless user.present?
 
-    can :read, Post, user:
+    can :destroy, Post do |post|
+      post.author == user
+    end
+
+    # additional permissions for admin users
+    return unless user.role == 'admin'
+
+    can :destroy, Post
   end
 end

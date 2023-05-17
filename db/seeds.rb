@@ -3,26 +3,41 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 
-# 6.times { user = User.create!(name: Faker::Name.first_name, photo: Faker::Avatar.image, bio: Faker::Job.title) }
+user1 = User.create!(
+  email: 'test@test.com',
+  password: 'password',
+  password_confirmation: 'password',
+  confirmed_at: Time.now,
+  name: Faker::Name.first_name, 
+  photo: Faker::Avatar.image, 
+  bio: Faker::Job.title
+)
 
-# User.all.each do |user|
-#   10.times do
-#     post = Post.create!(
-#       title: Faker::Quotes::Shakespeare.hamlet_quote, 
-#       text: Faker::Quote.matz,
-#       author: user,
-#       comments_counter: 0,
-#       likes_counter: 0
-#     )
+post1 = Post.create!(
+  title: Faker::Quotes::Shakespeare.hamlet_quote, 
+  text: Faker::Quote.matz,
+  author: user1
+)
 
-#     10.times do 
-#       author = User.order("RANDOM()").first
-#       Comment.create!(text: Faker::Quotes::Shakespeare.as_you_like_it_quote, author:, post:)
-#     end
+post2 = Post.create!(
+  title: Faker::Quotes::Shakespeare.hamlet_quote, 
+  text: Faker::Quote.matz,
+  author: user1
+)
 
-#     10.times do 
-#       author = User.order("RANDOM()").first
-#       Like.create!(author:, post:)
-#     end
-#   end
-# end
+user2 = User.create!(
+  email: 'admin@test.com',
+  password: 'password',
+  password_confirmation: 'password',
+  confirmed_at: Time.now,
+  name: Faker::Name.first_name, 
+  photo: Faker::Avatar.image, 
+  bio: Faker::Job.title,
+  role: 'admin'
+)
+
+post3 = Post.create!(
+  title: Faker::Quotes::Shakespeare.hamlet_quote, 
+  text: Faker::Quote.matz,
+  author: user2
+)
