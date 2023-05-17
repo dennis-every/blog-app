@@ -80,6 +80,7 @@ GEM
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.0)
       addressable
       matrix
@@ -301,9 +302,10 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap
+  cancancan (~> 3.5)
   capybara
   debug
-  devise
+  devise (~> 4.9, >= 4.9.2)
   faker (~> 3.2)
   importmap-rails
   jbuilder
