@@ -1,0 +1,13 @@
+#devise {
+  height: calc(80vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #devise-container {
+    box-shadow: 0 3px 7.5px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 3rem;
+    width: 30rem;
+  }
+}

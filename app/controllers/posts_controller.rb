@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @likes = @user.likes.includes(:post).index_by(&:post_id)
     @liked_post_ids = @likes.keys
     @posts = @user.posts.includes(:likes, last_five_comments: :author).order(created_at: :asc)
+    @posts_count = @posts.size
   end
 
   def new
