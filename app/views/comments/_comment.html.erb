@@ -1,7 +1,10 @@
 <li>
   <div class="card mb-3">      
     <div class="card-body">
-      <p class="card-text"><%= comment.author.name %>: <%= comment.text %></p>
+      <div class="card-text">
+        <p><%= comment.author.name %>: <%= comment.text %></p>
+        <p class='text-end'><%= delete_comment(comment) %></p>
+      </div>
     </div>
   </div>
 </li>

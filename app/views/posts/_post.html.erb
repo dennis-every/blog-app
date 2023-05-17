@@ -3,8 +3,8 @@
     <div class='d-flex justify-content-between'>
       <span><h5 class="card-title"><%= link_to post.title, post %></h5></span>
       <div class='d-flex'>
-        <span class="px-1"><%= like_link(post) %></span>
-        <span  class="px-1"><%= delete_link(post) %></span>
+        <span class="px-1"><%= like_post(post) %></span>
+        <span  class="px-1"><%= delete_post(post) %></span>
       </div>
     </div>
     <p class="card-text"><%= post.text %></p>

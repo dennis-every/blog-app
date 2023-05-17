@@ -29,6 +29,7 @@ class Ability
 
     # starting rules for all users
     can :read, Post, public: true
+    can :read, Comment, public: true
 
     # additional permissions for logged in users
     return unless user.present?
@@ -37,9 +38,13 @@ class Ability
       post.author == user
     end
 
+    can :destroy, Comment do |comment|
+      comment.author == user
+    end
+
     # additional permissions for admin users
     return unless user.role == 'admin'
 
-    can :destroy, Post
+    can :destroy, Comment    
   end
 end
