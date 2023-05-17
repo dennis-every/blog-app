@@ -45,6 +45,6 @@ class Ability
     # additional permissions for admin users
     return unless user.role == 'admin'
 
-    can :destroy, Comment    
+    can :destroy, Comment
   end
 end
