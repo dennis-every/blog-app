@@ -46,5 +46,6 @@ class Ability
     return unless user.role == 'admin'
 
     can :destroy, Comment
+    can :destroy, Post
   end
 end
