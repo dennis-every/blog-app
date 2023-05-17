@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     user = @post.author
 
     @post.destroy
-    redirect_back(fallback_location: user)
+    redirect_to user
   end
 
   private
