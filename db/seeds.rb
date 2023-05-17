@@ -19,6 +19,18 @@ post1 = Post.create!(
   author: user1
 )
 
+comment1 = Comment.create!(
+  text: Faker::Quote.matz,
+  post: post1, 
+  author: user1
+)
+
+comment2 = Comment.create!(
+  text: Faker::Quote.matz,
+  post: post1, 
+  author: user1
+)
+
 post2 = Post.create!(
   title: Faker::Quotes::Shakespeare.hamlet_quote, 
   text: Faker::Quote.matz,
@@ -39,5 +51,11 @@ user2 = User.create!(
 post3 = Post.create!(
   title: Faker::Quotes::Shakespeare.hamlet_quote, 
   text: Faker::Quote.matz,
+  author: user2
+)
+
+comment3 = Comment.create!(
+  text: Faker::Quote.matz,
+  post: post1, 
   author: user2
 )
