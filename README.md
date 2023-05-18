@@ -52,6 +52,8 @@ A Ruby on Rails Blog application to demonstrate usage of Ruby on Rails. The Blog
 - **Project 7: Forms**
 - **Project 8: Integration specs for Views and fixing n+1 problems**
 - **Project 9: Add Devise**
+- **Project 10: Add authorization rules**
+- **Project 11: Add API endpoints**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,8 +122,6 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Project 10: Add authorization rules**
-- **Project 11: Add API endpoints**
 - **Exercise: API documentation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
