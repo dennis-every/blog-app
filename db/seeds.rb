@@ -8,9 +8,7 @@ user1 = User.create!(
   password: 'password',
   password_confirmation: 'password',
   confirmed_at: Time.now,
-  name: Faker::Name.first_name, 
-  photo: Faker::Avatar.image, 
-  bio: Faker::Job.title
+  name: Faker::Name.first_name
 )
 
 post1 = Post.create!(
@@ -20,13 +18,13 @@ post1 = Post.create!(
 )
 
 comment1 = Comment.create!(
-  text: Faker::Quote.matz,
+  text: Faker::Quote.matz.slice(0, 300),
   post: post1, 
   author: user1
 )
 
 comment2 = Comment.create!(
-  text: Faker::Quote.matz,
+  text: Faker::Quote.matz.slice(0, 300),
   post: post1, 
   author: user1
 )
@@ -42,9 +40,7 @@ user2 = User.create!(
   password: 'password',
   password_confirmation: 'password',
   confirmed_at: Time.now,
-  name: Faker::Name.first_name, 
-  photo: Faker::Avatar.image, 
-  bio: Faker::Job.title,
+  name: Faker::Name.first_name,
   role: 'admin'
 )
 
@@ -55,7 +51,7 @@ post3 = Post.create!(
 )
 
 comment3 = Comment.create!(
-  text: Faker::Quote.matz,
+  text: Faker::Quote.matz.slice(0, 300),
   post: post1, 
   author: user2
 )
