@@ -7,7 +7,7 @@ class Api::V1::BaseController < ApplicationController
 
   def authenticate
     token = request.headers['Authorization']
-    current_user = User.find_by(auth_token: token)
+    @current_user = User.find_by(auth_token: token)
 
     render json: { error: 'Not Authorized' }, status: 401 unless current_user
   end
