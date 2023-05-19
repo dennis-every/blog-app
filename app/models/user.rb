@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   before_validation :set_posts_counter, on: :create
+  before_create :set_auth_token
+  before_create :set_profile
 
   has_many :posts, foreign_key: :author_id, dependent: :destroy
   has_many :comments, foreign_key: :author_id, dependent: :destroy
@@ -29,5 +31,17 @@ class User < ApplicationRecord
 
   def set_posts_counter
     self.posts_counter = 0
+  end
+
+  def set_auth_token
+    loop do
+      self.auth_token = SecureRandom.hex
+      break unless User.exists?(auth_token:)
+    end
+  end
+
+  def set_profile
+    self.photo = Faker::Avatar.image
+    self.bio = Faker::Job.title
   end
 end

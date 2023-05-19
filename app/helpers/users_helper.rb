@@ -15,4 +15,10 @@ module UsersHelper
 
     link_to 'Add Post', new_user_post_path(user), class: 'btn btn-primary'
   end
+
+  def display_auth_token(user)
+    return unless can? :read, user
+
+    "Auth token: #{user.auth_token}"
+  end
 end
