@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < Api::V1::BaseController
+  skip_before_action :verify_authenticity_token
   skip_before_action :authenticate, only: :index
 
   def index
@@ -22,6 +23,6 @@ class Api::V1::CommentsController < Api::V1::BaseController
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :text, :author_id)
+    params.require(:comment).permit(:post_id, :text)
   end
 end
