@@ -50,6 +50,7 @@ gem 'sassc-rails'
 # gem 'image_processing', '~> 1.2'
 gem 'cancancan', '~> 3.5'
 gem 'devise', '~> 4.9', '>= 4.9.2'
+gem 'rswag', '~> 2.9'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

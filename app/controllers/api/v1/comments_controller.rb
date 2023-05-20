@@ -11,7 +11,8 @@ class Api::V1::CommentsController < Api::V1::BaseController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.author = current_user
+    @comment.post_id = params[:post_id]
+    @comment.author = @authorized_user
 
     if @comment.save
       render json: @comment, status: :created, location: @comment
